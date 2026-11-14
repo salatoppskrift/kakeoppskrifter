@@ -5,6 +5,9 @@ export type Ingredient = {
     | 'g'
     | 'dl'
     | 'ts'
+    | 'ss'
+    | 'cup'
+    | 'NA'
 }
 
 export type Recipe = {

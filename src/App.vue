@@ -12,11 +12,63 @@ const recipes = ref<RecipeType[]>([
     ingredients: [
       {
         name: "carrot",
-        amount: 200,
+        amount: 500,
         measurement: 'g'
       },
+      {
+        name: "flour",
+        amount: 6,
+        measurement: 'dl'
+      },
+      {
+        name: 'sugar',
+        amount: 4,
+        measurement: 'dl'
+      },
+      {
+        name: 'baking powder',
+        amount: 1,
+        measurement: 'ss'
+      },
+      {
+        name: 'cinnamon powder',
+        amount: 1,
+        measurement: 'ts'
+      }
     ],
     minutes: 45
+  },
+  {
+    id: uuidv4(),
+    name: "water pie",
+    ingredients: [
+      {
+        name: "water",
+        amount: 1.5,
+        measurement: 'cup'
+      },
+      {
+        name: "flour",
+        amount: 4,
+        measurement: 'ts'
+      },
+      {
+        name: 'sugar',
+        amount: 1,
+        measurement: 'cup'
+      },
+      {
+        name: 'vanilla extract',
+        amount: 2,
+        measurement: 'ts'
+      },
+      {
+        name: 'butter',
+        amount: 5,
+        measurement: 'ts'
+      }
+    ],
+    minutes: 75
   }
 ]);
 const groceryList = ref<GroceryListType>(
@@ -27,9 +79,9 @@ const groceryList = ref<GroceryListType>(
 
 <template>
   <main>
-    <Recipe :portions="1" :recipe="recipes[0]">
+    <Recipe :portions="5" :recipe="recipes[0]">
       
     </Recipe>
-    <GroceryList />
+    <GroceryList :list="groceryList.flatMap(item => item.ingredients)"/>
   </main>
 </template>
